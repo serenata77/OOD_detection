@@ -38,3 +38,13 @@ A clean PyTorch implementation evaluating **Model Calibration** (ECE, Temperatur
 git clone [https://github.com/](https://github.com/)<your-username>/ood-uncertainty-benchmark.git
 cd ood-uncertainty-benchmark
 pip install -r requirements.txt
+```
+
+2. Uncertainty-Aware Deferral (Selective Classification)
+
+In safety-critical domains, a model must know when to abstain. By utilizing predictive entropy as an uncertainty gating function, the system defers ambiguous cases to a human-in-the-loop:
+
+![Risk Coverage Curve](assets/risk_coverage_curve.png)
+
+- **Coverage vs. Risk Tradeoff:** Progressively deferring high-entropy queries allows the model to drop its operational error rate from ~25% down to under 5%.
+- **Area Under Risk-Coverage (AURC):** Evaluates how effectively the uncertainty score prioritizes mistakes over correct classifications compared to random deferral.
